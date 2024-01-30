@@ -10,7 +10,9 @@ function generaForm() {
     create("Email", formulario);
 
     var inputBoton = document.createElement("input");
-    inputBoton.setAttribute("type", "submit");
+    inputBoton.innerHTML="Enviar"
+    inputBoton.setAttribute("type", "button");
+    inputBoton.setAttribute("value", "Enviar");
     inputBoton.setAttribute("style", "margin: auto; padding: 5px;");
     inputBoton.setAttribute("onclick", "validad()")
     formulario.appendChild(inputBoton);
@@ -65,7 +67,12 @@ que no haya espacios
 numero de caracteres
 */
 
-function contieneArroba(email) {
+function val_Email(email) {
+
+    if (!email.includes("@")) {
+        return false;
+        
+    }
   var arroba = email.charCodeAt(0) != 64;
 
   var espacio = !email.includes(" ");
@@ -190,7 +197,6 @@ function val_DNI(DNI){
 
 function validad(){
 var valorNom = document.getElementById("NombreInput").value;
-
 var valorAp = document.getElementById("ApellidosInput").value;
 var valorDni = document.getElementById("DniInput").value;
 var valorEmail = document.getElementById("EmailInput").value;
@@ -208,5 +214,52 @@ if(val_nombre(valorNom)){
 }else{
   parrafo.style.color="red"
 }
+
+
+var parrafo2 = document.createElement("p");
+var texto2 = document.createTextNode(valorAp);
+
+div1.appendChild(parrafo2);
+parrafo2.appendChild(texto2);
+
+
+if(val_nombre(valorAp)){
+  parrafo2.style.color="blue"
+}else{
+  parrafo2.style.color="red"
+}
+
+
+var parrafo3 = document.createElement("p");
+var texto3 = document.createTextNode(valorDni);
+
+div1.appendChild(parrafo3);
+parrafo3.appendChild(texto3);
+
+
+if(val_DNI(valorDni)){
+  parrafo3.style.color="blue"
+}else{
+  parrafo3.style.color="red"
+}
+
+var parrafo4 = document.createElement("p");
+var texto4 = document.createTextNode(valorEmail);
+
+div1.appendChild(parrafo4);
+parrafo4.appendChild(texto4);
+
+
+if(val_Email(valorEmail)){
+  parrafo4.style.color="blue"
+}else{
+  parrafo4.style.color="red"
+}
+
+console.log(val_Email);
+ 
+
+
+
 
 }
