@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Evento: carga el formulario al cargar la página
+
+document.addEventListener("DOMContentLoaded", () => {   
     var formulario = document.createElement("form");
 
     formulario.setAttribute('style', "width:300px;margin: 0px auto");
@@ -7,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     create("Apellidos", formulario);
     create("Dni", formulario);
     create("Email", formulario);
+
+// Botón y atributos
 
     var inputBoton = document.createElement("input");
     inputBoton.innerHTML="Enviar"
@@ -18,15 +22,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(formulario);
 
+// Elimina un div ya existente cada vez que se pulsa el botón de enviar
+
     inputBoton.addEventListener("click", () => {
         var prev_div = document.getElementsByTagName("div");
         if(prev_div.length != 0)
             prev_div[0].remove();
 
+// Conseguir el valor de los formularios
+
         var valorNom = document.getElementById("NombreInput").value;
         var valorAp = document.getElementById("ApellidosInput").value;
         var valorDni = document.getElementById("DniInput").value;
         var valorEmail = document.getElementById("EmailInput").value;
+
+// Creacion del div que va a amostrar las validaciones. 
+// Si es correcto el formato lo muestra en azul, de lo contrario en rojo.
 
         var div1 = document.createElement("div");
         var parrafo = document.createElement("p");
@@ -36,10 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
         parrafo.appendChild(texto);
         document.body.appendChild(div1);
 
+        div1.setAttribute('style', "width:300px;margin: 0px auto");
+
         if(val_nombre(valorNom)){
-            parrafo.style.color="blue"
+            parrafo.style.color="white"
+            parrafo.style.backgroundColor="rgba(93, 212, 236, 0.5)"
         }else{
-            parrafo.style.color="red"
+            parrafo.style.color="white"
+            parrafo.style.backgroundColor="rgba(236, 93, 93, 0.5)"
         }
 
         var parrafo2 = document.createElement("p");
@@ -49,9 +64,11 @@ document.addEventListener("DOMContentLoaded", () => {
         parrafo2.appendChild(texto2);
 
         if(val_nombre(valorAp)){
-            parrafo2.style.color="blue"
+            parrafo2.style.color="white"
+            parrafo2.style.backgroundColor="rgba(93, 212, 236, 0.5)"
         }else{
-            parrafo2.style.color="red"
+            parrafo2.style.color="white"
+            parrafo2.style.backgroundColor="rgba(236, 93, 93, 0.5)"
         }
 
         var parrafo3 = document.createElement("p");
@@ -61,9 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
         parrafo3.appendChild(texto3);
 
         if(val_DNI(valorDni)){
-            parrafo3.style.color="blue"
+            parrafo3.style.color="white"
+            parrafo3.style.backgroundColor="rgba(93, 212, 236, 0.5)"
         }else{
-            parrafo3.style.color="red"
+            parrafo3.style.color="white"
+            parrafo3.style.backgroundColor="rgba(236, 93, 93, 0.5)"
         }
 
         var parrafo4 = document.createElement("p");
@@ -73,12 +92,16 @@ document.addEventListener("DOMContentLoaded", () => {
         parrafo4.appendChild(texto4);
 
         if(val_Email(valorEmail)){
-            parrafo4.style.color="blue"
+            parrafo4.style.color="white"
+            parrafo4.style.backgroundColor="rgba(93, 212, 236, 0.5)"
         }else{
-            parrafo4.style.color="red"
+            parrafo4.style.color="white"
+            parrafo4.style.backgroundColor="rgba(236, 93, 93, 0.5)"
         }
     });
 });
+
+// Función que crea los inputs del formulario
 
 function create (nombre, formulario) {
     var elemento = document.createElement("label");
@@ -90,7 +113,7 @@ function create (nombre, formulario) {
     inputElemento.setAttribute("id", nombre + "Input");
     inputElemento.setAttribute("placeholder", nombre);
     inputElemento.setAttribute("required", "true");
-    inputElemento.setAttribute("style", "width:100%;margin: 10px 0px;padding: 5px");
+    inputElemento.setAttribute("style", "width:100%;margin: 10px 0px;padding: 5px; border-style: outset; border-color: red;");
 
     formulario.appendChild(elemento);
 
