@@ -13,7 +13,7 @@ function generaForm() {
     inputBoton.innerHTML="Enviar"
     inputBoton.setAttribute("type", "button");
     inputBoton.setAttribute("value", "Enviar");
-    inputBoton.setAttribute("style", "margin: auto; padding: 5px;");
+    inputBoton.setAttribute("style", "margin: auto; padding: 15px;; border-radius: 10px; background-color: rgb(227, 12, 134); font-weight:900;text-transform: uppercase; box-shadow:0px 5px 25px 0px rgba(0, 0, 0, 0.4) ");
     inputBoton.setAttribute("onclick", "validad()")
     formulario.appendChild(inputBoton);
 
@@ -196,6 +196,7 @@ function val_DNI(DNI){
 }
 
 function validad(){
+
 var valorNom = document.getElementById("NombreInput").value;
 var valorAp = document.getElementById("ApellidosInput").value;
 var valorDni = document.getElementById("DniInput").value;
@@ -257,9 +258,5 @@ if(val_Email(valorEmail)){
 }
 
 console.log(val_Email);
- 
-
-
-
 
 }
