@@ -196,70 +196,70 @@ function val_DNI(DNI){
 }
 
 function validad(){
-var valorNom = document.getElementById("NombreInput").value;
-var valorAp = document.getElementById("ApellidosInput").value;
-var valorDni = document.getElementById("DniInput").value;
-var valorEmail = document.getElementById("EmailInput").value;
+    var prev_div = document.getElementsByTagName("div");
+    if(prev_div.length != 0)
+        prev_div[0].remove();
 
-var div1 = document.createElement("div");
-var parrafo = document.createElement("p");
-var texto = document.createTextNode(valorNom);
+    var valorNom = document.getElementById("NombreInput").value;
+    var valorAp = document.getElementById("ApellidosInput").value;
+    var valorDni = document.getElementById("DniInput").value;
+    var valorEmail = document.getElementById("EmailInput").value;
 
-div1.appendChild(parrafo);
-parrafo.appendChild(texto);
-document.body.appendChild(div1);
+    var div1 = document.createElement("div");
+    var parrafo = document.createElement("p");
+    var texto = document.createTextNode(valorNom);
 
-if(val_nombre(valorNom)){
-  parrafo.style.color="blue"
-}else{
-  parrafo.style.color="red"
-}
+    div1.appendChild(parrafo);
+    parrafo.appendChild(texto);
+    document.body.appendChild(div1);
 
-
-var parrafo2 = document.createElement("p");
-var texto2 = document.createTextNode(valorAp);
-
-div1.appendChild(parrafo2);
-parrafo2.appendChild(texto2);
+    if(val_nombre(valorNom)){
+        parrafo.style.color="blue"
+    }else{
+        parrafo.style.color="red"
+    }
 
 
-if(val_nombre(valorAp)){
-  parrafo2.style.color="blue"
-}else{
-  parrafo2.style.color="red"
-}
+    var parrafo2 = document.createElement("p");
+    var texto2 = document.createTextNode(valorAp);
+
+    div1.appendChild(parrafo2);
+    parrafo2.appendChild(texto2);
 
 
-var parrafo3 = document.createElement("p");
-var texto3 = document.createTextNode(valorDni);
-
-div1.appendChild(parrafo3);
-parrafo3.appendChild(texto3);
-
-
-if(val_DNI(valorDni)){
-  parrafo3.style.color="blue"
-}else{
-  parrafo3.style.color="red"
-}
-
-var parrafo4 = document.createElement("p");
-var texto4 = document.createTextNode(valorEmail);
-
-div1.appendChild(parrafo4);
-parrafo4.appendChild(texto4);
+    if(val_nombre(valorAp)){
+        parrafo2.style.color="blue"
+    }else{
+        parrafo2.style.color="red"
+    }
 
 
-if(val_Email(valorEmail)){
-  parrafo4.style.color="blue"
-}else{
-  parrafo4.style.color="red"
-}
+    var parrafo3 = document.createElement("p");
+    var texto3 = document.createTextNode(valorDni);
 
-console.log(val_Email);
- 
+    div1.appendChild(parrafo3);
+    parrafo3.appendChild(texto3);
 
 
+    if(val_DNI(valorDni)){
+        parrafo3.style.color="blue"
+    }else{
+        parrafo3.style.color="red"
+    }
 
+    var parrafo4 = document.createElement("p");
+    var texto4 = document.createTextNode(valorEmail);
+
+    div1.appendChild(parrafo4);
+    parrafo4.appendChild(texto4);
+
+
+    if(val_Email(valorEmail)){
+        parrafo4.style.color="blue"
+    }else{
+        parrafo4.style.color="red"
+    }
+
+    console.log(val_Email);
 
 }
