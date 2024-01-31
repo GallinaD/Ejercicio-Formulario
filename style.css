@@ -1,0 +1,17 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdnzN9hP0axUWoWouqu73TSPux6VE0HCJH6w&usqp=CAU);
+background-repeat: no-repeat;
+background-size:100%;
+
+}
+
+#Enviar:hover{
+background-color: #7d0762 !important;
+color: #ccc;
+box-shadow: -15px 30px 50px rgba(0, 0, 0, 0.5);
+transform: scale(1.15) translateX(10px) translateY(-4px);
+z-index: 1000;
+cursor: pointer;
+
+}
