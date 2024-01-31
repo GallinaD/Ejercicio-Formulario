@@ -1,5 +1,4 @@
-function generaForm() {
-
+document.addEventListener("DOMContentLoaded", () => {
     var formulario = document.createElement("form");
 
     formulario.setAttribute('style', "width:300px;margin: 0px auto");
@@ -11,19 +10,80 @@ function generaForm() {
 
     var inputBoton = document.createElement("input");
     inputBoton.innerHTML="Enviar"
+    inputBoton.setAttribute("id", "Enviar");
     inputBoton.setAttribute("type", "button");
     inputBoton.setAttribute("value", "Enviar");
     inputBoton.setAttribute("style", "margin: auto; padding: 15px;; border-radius: 10px; background-color: rgb(227, 12, 134); font-weight:900;text-transform: uppercase; box-shadow:0px 5px 25px 0px rgba(0, 0, 0, 0.4) ");
-    inputBoton.setAttribute("onclick", "validad()")
     formulario.appendChild(inputBoton);
 
-
     document.body.appendChild(formulario);
-}
+
+    inputBoton.addEventListener("click", () => {
+        var prev_div = document.getElementsByTagName("div");
+        if(prev_div.length != 0)
+            prev_div[0].remove();
+
+        var valorNom = document.getElementById("NombreInput").value;
+        var valorAp = document.getElementById("ApellidosInput").value;
+        var valorDni = document.getElementById("DniInput").value;
+        var valorEmail = document.getElementById("EmailInput").value;
+
+        var div1 = document.createElement("div");
+        var parrafo = document.createElement("p");
+        var texto = document.createTextNode(valorNom);
+
+        div1.appendChild(parrafo);
+        parrafo.appendChild(texto);
+        document.body.appendChild(div1);
+
+        if(val_nombre(valorNom)){
+            parrafo.style.color="blue"
+        }else{
+            parrafo.style.color="red"
+        }
+
+        var parrafo2 = document.createElement("p");
+        var texto2 = document.createTextNode(valorAp);
+
+        div1.appendChild(parrafo2);
+        parrafo2.appendChild(texto2);
+
+        if(val_nombre(valorAp)){
+            parrafo2.style.color="blue"
+        }else{
+            parrafo2.style.color="red"
+        }
+
+        var parrafo3 = document.createElement("p");
+        var texto3 = document.createTextNode(valorDni);
+
+        div1.appendChild(parrafo3);
+        parrafo3.appendChild(texto3);
+
+        if(val_DNI(valorDni)){
+            parrafo3.style.color="blue"
+        }else{
+            parrafo3.style.color="red"
+        }
+
+        var parrafo4 = document.createElement("p");
+        var texto4 = document.createTextNode(valorEmail);
+
+        div1.appendChild(parrafo4);
+        parrafo4.appendChild(texto4);
+
+        if(val_Email(valorEmail)){
+            parrafo4.style.color="blue"
+        }else{
+            parrafo4.style.color="red"
+        }
+    });
+});
 
 function create (nombre, formulario) {
     var elemento = document.createElement("label");
-    elemento.innerHTML = nombre;
+    var texto = document.createTextNode(nombre);
+    elemento.appendChild(texto);
 
     var inputElemento = document.createElement("input");
     inputElemento.setAttribute("type", "text");
@@ -39,7 +99,6 @@ function create (nombre, formulario) {
     formulario.appendChild(myBr);
 }
 
-generaForm()
 /**
  * Validación de nombres:
  * Que los apellidos esten separados y que solo contengan letras (ASCII A-Z [65 - 90], a-z [97 - 122], Ñ [209], ñ [241], space [32])
@@ -193,70 +252,4 @@ function val_DNI(DNI){
     var conmod23 = mod23(parseInt(numero), letra);
 
     return con0 && con1 && con2 && conmod23;
-}
-
-function validad(){
-
-var valorNom = document.getElementById("NombreInput").value;
-var valorAp = document.getElementById("ApellidosInput").value;
-var valorDni = document.getElementById("DniInput").value;
-var valorEmail = document.getElementById("EmailInput").value;
-
-var div1 = document.createElement("div");
-var parrafo = document.createElement("p");
-var texto = document.createTextNode(valorNom);
-
-div1.appendChild(parrafo);
-parrafo.appendChild(texto);
-document.body.appendChild(div1);
-
-if(val_nombre(valorNom)){
-  parrafo.style.color="blue"
-}else{
-  parrafo.style.color="red"
-}
-
-
-var parrafo2 = document.createElement("p");
-var texto2 = document.createTextNode(valorAp);
-
-div1.appendChild(parrafo2);
-parrafo2.appendChild(texto2);
-
-
-if(val_nombre(valorAp)){
-  parrafo2.style.color="blue"
-}else{
-  parrafo2.style.color="red"
-}
-
-
-var parrafo3 = document.createElement("p");
-var texto3 = document.createTextNode(valorDni);
-
-div1.appendChild(parrafo3);
-parrafo3.appendChild(texto3);
-
-
-if(val_DNI(valorDni)){
-  parrafo3.style.color="blue"
-}else{
-  parrafo3.style.color="red"
-}
-
-var parrafo4 = document.createElement("p");
-var texto4 = document.createTextNode(valorEmail);
-
-div1.appendChild(parrafo4);
-parrafo4.appendChild(texto4);
-
-
-if(val_Email(valorEmail)){
-  parrafo4.style.color="blue"
-}else{
-  parrafo4.style.color="red"
-}
-
-console.log(val_Email);
-
 }
